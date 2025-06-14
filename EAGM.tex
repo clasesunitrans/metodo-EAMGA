@@ -1,0 +1,150 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Welcome to Overleaf --- just edit your LaTeX on the left,
+% and we'll compile it for you on the right. If you open the
+% 'Share' menu, you can invite other users to edit at the same
+% time. See www.overleaf.com/learn for more info. Enjoy!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+%\usepackage{geometry}
+%\geometry{a4paper, margin=1in}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+%\documentclass{article}
+%\usepackage[utf8]{inputenc}
+%\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[letterpaper, left=1.5cm, right=1.5cm, top=45mm, bottom=20mm, portrait]{geometry}
+\title{EAMGA Enseñanza Aprendizaje de Matemáticas Guiada por Algoritmos}
+\author{Lic. Felipe Martínez}
+\date{Mayo 2025}
+\usepackage[pipeTables=true,hybrid, smartEllipses]{markdown}
+%\usepackage[smartEllipses]{markdown}
+
+%\usepackage[hybrid]{markdown}
+\begin{document}
+
+\begin{markdown}
+\maketitle
+# Enseñanza Aprendizaje de Matemáticas Guiada por Algoritmos
+
+## Introducción
+
+La enseñanza de las matemáticas tradicionalmente se ha basado en la transmisión de conceptos y técnicas, pero a menudo carece de un enfoque sistemático que permita a los estudiantes aplicar métodos de resolución de manera consistente. Este documento propone un **enfoque algorítmico** para enseñar matemáticas, donde cada método de resolución se presenta como un algoritmo estructurado. Este enfoque no solo facilita el aprendizaje, sino que también promueve habilidades de pensamiento lógico, organización y resolución de problemas.
+El método esta basado en un enfoque estructurado del proceso de enseñanza aprendizaje, tomando en cuenta una exposición coherente de los temas por el docente y un "algoritmo" de resolución de problemas basado en la propuesta del matemático húngaro George Polya en su libro \textit{Cómo plantear y resolver problemas}. 
+
+---
+
+## Procedimiento del Enfoque Algorítmico
+
+El enfoque consiste en presentar cada método matemático como un algoritmo con pasos claros y definidos una vez que el docente ha explicado los conceptos claramente. A continuación, se describe el procedimiento tanto para el docente como para el estudiante:
+
+### Para el Docente:
+1. **Nombre del Método**: Asigna un nombre claro al algoritmo (e.g., "Resolución de Sistemas de Ecuaciones por Sustitución").
+2. **Descripción General**: Explica brevemente el propósito del método y su contexto de aplicación.
+3. **Exposición**: Define claramente el método de resolución.
+\begin{enumerate} 
+\item **Entradas**: Define los datos o elementos necesarios para aplicar el método.
+\item **Pasos del Algoritmo**: Divide el proceso en pasos numerados y detallados.
+\item **Salida**: Indica qué resultado se obtiene al final del proceso.    
+\end{enumerate}
+
+6. **Ejemplo Resuelto**: Proporciona un ejemplo completo, aplicando el método paso a paso.
+7. **Casos Especiales o Errores Comunes**: Describe posibles excepciones o errores frecuentes.
+8. **Práctica Guiada**: Ofrece ejercicios guiados para reforzar el aprendizaje.
+9. **Práctica Independiente**: Sugiere ejercicios adicionales para consolidar el conocimiento.
+
+### Para el Estudiante (Método CPR^3):
+1. **Comprender el Problema**: Reconoce el tipo de problema y el método adecuado.
+\begin{enumerate}
+    \item Lee detalladamente y entiende el problema
+    \item Determina el **método o algoritmo** a utilizar
+    \item Determina las **Entradas** relevantes del problema
+    \item Determina las **Salidas** que se producirá
+\end{enumerate}
+2. **Planear** Con los datos anteriores determina como vas a resolver el problema, como va a utilizar los datos de entrada y que tipo de resultado puede obtener
+3. **Resolver aplicando el Algoritmo Paso a Paso**: Sigue los pasos del método de manera ordenada.
+4. **Revisar los Cálculos**: Revisa cada paso para asegurar precisión. 
+\begin{enumerate}
+    \item Si es posible emplea los métodos de comprobación del algoritmo. 
+    \item Interpreta el resultado verificando si es lógico de acuerdo a las entradas.
+    \item **ESCRIBE** claramente la solución final.    
+\end{enumerate}
+6. **Reflexionar sobre el Proceso**: Evalúa el proceso y considera posibles mejoras.
+
+---
+
+## Ventajas del Enfoque Algorítmico
+
+1. **Claridad y Estructura**: Los estudiantes tienen un marco claro para abordar problemas, lo que reduce la confusión y aumenta la confianza.
+2. **Consistencia**: El uso de un formato fijo asegura que todos los estudiantes sigan el mismo proceso, facilitando la corrección y el seguimiento.
+3. **Desarrollo de Habilidades Lógicas**: Al seguir un algoritmo, los estudiantes practican el pensamiento secuencial y organizado.
+4. **Facilita la Automatización**: Con la práctica, los estudiantes pueden internalizar los pasos y resolver problemas más rápidamente.
+5. **Adaptabilidad**: Este enfoque puede aplicarse a una amplia variedad de temas matemáticos, desde aritmética básica hasta cálculo avanzado.
+
+---
+
+## Desventajas del Enfoque Algorítmico
+
+1. **Rigidez Potencial**: Si no se enfatiza la comprensión conceptual, los estudiantes podrían memorizar los pasos sin entender su significado.
+2. **Limitación en la Creatividad**: Algunos problemas requieren soluciones no estándar, y un enfoque demasiado rígido podría limitar la capacidad de los estudiantes para pensar fuera de los pasos establecidos.
+3. **Dependencia Excesiva del Método**: Los estudiantes podrían depender únicamente del algoritmo y tener dificultades cuando enfrenten problemas que no se ajusten perfectamente al formato.
+4. **Tiempo Inicial de Implementación**: Diseñar y enseñar algoritmos claros puede requerir más tiempo al principio, especialmente para temas complejos.
+
+---
+
+## Bases Pedagógicas
+
+Este enfoque se fundamenta en varias teorías pedagógicas reconocidas:
+
+1. **Constructivismo**: Los estudiantes construyen su propio conocimiento al aplicar pasos concretos y reflexionar sobre ellos.
+2. **Aprendizaje Basado en Procesos**: Al dividir problemas en pasos manejables, los estudiantes desarrollan habilidades metacognitivas y aprenden a organizar su pensamiento.
+3. **Teoría del Aprendizaje por Etapas (Bruner)**: El enfoque algorítmico comienza con una etapa activa (aplicación de pasos) y progresa hacia una comprensión abstracta (conceptualización).
+4. **Andamiaje (Vygotsky)**: El docente proporciona un marco estructurado que guía a los estudiantes hacia la independencia.
+
+---
+
+## Ejemplo: Resolución de Ecuaciones Lineales
+
+### Para el Docente:
+1. **Nombre del Método**: Resolución de Ecuaciones Lineales.
+2. **Descripción General**: Este método permite encontrar el valor de una incógnita en una ecuación lineal.
+3. **Entradas**: Ecuación de la forma $ ax + b = c $.
+4. **Pasos del Algoritmo**:
+   1. Identifica $ a $, $ b $, y $ c $.  
+   2. Resta $ b $ de ambos lados: $ ax = c - b $.  
+   3. Divide entre $ a $: $ x = \frac{c - b}{a} $.  
+   4. Simplifica para obtener $ x $.  
+5. **Salida**: El valor de $ x $.
+6. **Ejemplo Resuelto**: Resolver $ 3x + 4 = 10 $:  
+   - $ a = 3 $, $ b = 4 $, $ c = 10 $.  
+   - Restar $ 4 $: $ 3x = 6 $.  
+   - Dividir entre $ 3 $: $ x = 2 $.  
+7. **Casos Especiales**: Si $ a = 0 $, la ecuación no es lineal.
+8. **Práctica Guiada**: Resolver $ 2x - 5 = 7 $.  
+9. **Práctica Independiente**: Resolver $ 4x + 3 = 15 $.
+
+### Para el Estudiante:
+Resolver $ 2x - 5 = 7 $:
+1. Identificar el Problema: Es una ecuación lineal.
+2. Definir las Entradas: $ a = 2 $, $ b = -5 $, $ c = 7 $.
+3. Aplicar el Algoritmo:
+   - Restar $ -5 $: $ 2x = 12 $.  
+   - Dividir entre $ 2 $: $ x = 6 $.  
+4. Verificar los Cálculos: Substituir $ x = 6 $ en la ecuación original: $ 2(6) - 5 = 7 $ (correcto).  
+5. Interpretar la Salida: La solución es $ x = 6 $.  
+6. Reflexionar sobre el Proceso: Fue fácil seguir los pasos.
+
+---
+
+## Conclusión
+
+El enfoque algorítmico para enseñar matemáticas ofrece una alternativa estructurada y consistente que puede mejorar significativamente el aprendizaje de los estudiantes. Sin embargo, es crucial equilibrar este enfoque con actividades que fomenten la comprensión conceptual y la creatividad. Al implementar este método, los docentes pueden ayudar a sus estudiantes a desarrollar habilidades matemáticas sólidas y transferibles, preparándolos para enfrentar una variedad de problemas en su futuro académico y profesional.
+\end{markdown}
+
+\end{document}

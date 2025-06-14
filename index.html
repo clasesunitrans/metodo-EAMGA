@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Pensamiento Algorítmico y Enseñanza de las Matemáticas</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Fondo suave */
+            color: #263238; /* Color de texto oscuro */
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        /* Contenedor principal */
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+            background: linear-gradient(135deg, #1d4d73, #3a6b9a);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        header p {
+            font-size: 1.3em;
+            margin-top: 15px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        /* Contenedor de pestañas */
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las pestañas se envuelvan */
+            justify-content: center; /* Centra las pestañas */
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-button {
+            background-color: #f8f8f8;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #4a6c89;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            margin-right: 5px; /* Espacio entre pestañas */
+            margin-bottom: -2px; /* Superpone ligeramente la línea inferior */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap; /* Evita que el texto de la pestaña se rompa */
+        }
+
+        .tab-button:hover {
+            background-color: #e6f2ff;
+            color: #2980b9;
+        }
+
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #f39c12; /* Naranja para la pestaña activa */
+            border-bottom: 3px solid #f39c12; /* Línea inferior naranja */
+            transform: translateY(2px);
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+            z-index: 1; /* Asegura que la pestaña activa esté sobre la línea */
+        }
+
+        /* Contenido de las pestañas */
+        .tab-content-section {
+            display: none; /* Oculta por defecto */
+            padding: 30px;
+            background-color: #fcfcfc;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 8px solid #f39c12; /* Línea naranja elegante para el contenido */
+            margin-bottom: 40px;
+        }
+
+        .tab-content-section.challenge {
+            border-left-color: #e74c3c; /* Rojo para desafíos */
+            background-color: #fff0f0;
+        }
+
+        .tab-content-section.active {
+            display: block; /* Muestra la pestaña activa */
+        }
+
+        /* Estilos de los títulos dentro de las secciones */
+        h2 {
+            color: #2980b9;
+            margin-top: 0;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            font-weight: 700;
+            text-align: center;
+        }
+        .tab-content-section.challenge h2 {
+            color: #c0392b;
+            border-bottom-color: #f39c12;
+        }
+        h3 {
+            color: #4a6c89;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 600;
+            border-bottom: 1px dashed #cccccc;
+            padding-bottom: 8px;
+        }
+
+        /* Estilos de las listas */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        ul li {
+            background: #fdfdfd;
+            margin-bottom: 12px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 45px;
+            border: 1px solid #e8e8e8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            font-size: 1.1em;
+        }
+        ul li:hover {
+            background-color: #e6f2ff;
+            border-color: #aed6f1;
+        }
+        ul li:before {
+            position: absolute;
+            left: 15px;
+            font-size: 1.4em;
+            line-height: 1;
+        }
+        section:not(.challenge) ul li:before {
+            content: '✨';
+        }
+        section.challenge ul li:before {
+            content: '⚠️';
+        }
+        #teaching-flow {
+            border-left-color: #f39c12;
+            background-color: #fff9e6;
+        }
+        #teaching-flow h3 {
+            color: #d35400;
+        }
+        #teaching-flow ul li:before {
+            content: '➡️';
+        }
+        #teaching-flow ul li {
+             border: 1px solid #fce8cc;
+        }
+
+        /* Diseño de dos columnas */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 25px;
+        }
+        .column {
+            flex: 1;
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Bloques de texto coloreados */
+        .colored-block {
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.5;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .colored-block.blue {
+            background-color: #e3f2fd; /* Azul claro */
+            border-left: 5px solid #2196f3; /* Azul más oscuro */
+            color: #1a237e;
+        }
+
+        .colored-block.orange {
+            background-color: #fff3e0; /* Naranja claro */
+            border-left: 5px solid #ff9800; /* Naranja más oscuro */
+            color: #e65100;
+        }
+
+        .colored-block.green {
+            background-color: #e8f5e9; /* Verde claro */
+            border-left: 5px solid #4caf50; /* Verde más oscuro */
+            color: #1b5e20;
+        }
+        
+        .colored-block.red {
+            background-color: #ffebee; /* Rojo claro */
+            border-left: 5px solid #f44336; /* Rojo más oscuro */
+            color: #b71c1c;
+        }
+
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #34495e;
+            color: white;
+            border-radius: 0 0 15px 15px;
+            font-size: 1em;
+            opacity: 0.98;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+            header p {
+                font-size: 1.1em;
+            }
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 20px;
+            }
+            h3 {
+                font-size: 1.4em;
+                margin-top: 20px;
+            }
+            .container {
+                width: 98%;
+                padding: 15px;
+            }
+            .tab-button {
+                padding: 12px 18px;
+                font-size: 1em;
+            }
+            .tab-content-section {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+            ul li {
+                padding: 12px 20px;
+                padding-left: 40px;
+                font-size: 1em;
+            }
+            ul li:before {
+                font-size: 1.2em;
+            }
+            .two-columns {
+                flex-direction: column;
+                gap: 25px;
+            }
+            .column {
+                min-width: unset;
+            }
+            .colored-block {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+                letter-spacing: 1px;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .container {
+                padding: 10px;
+            }
+            .tab-button {
+                width: 100%; /* Las pestañas ocupan todo el ancho */
+                margin-right: 0;
+                border-radius: 0; /* No redondeadas para ocupar todo el ancho */
+                border-bottom: 1px solid #e0e0e0;
+                margin-bottom: 0;
+                box-shadow: none;
+            }
+            .tab-button.active {
+                border-bottom: 3px solid #f39c12;
+                transform: translateY(0);
+            }
+            section {
+                padding: 15px;
+            }
+            ul li {
+                padding: 10px 15px;
+                padding-left: 35px;
+                font-size: 0.9em;
+            }
+            ul li:before {
+                font-size: 1em;
+                left: 10px;
+            }
+            footer {
+                padding: 15px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Infografía: Pensamiento Algorítmico y la Enseñanza de las Matemáticas 🧠🔢</h1>
+            <p>Explorando la esencia, aplicación y el impacto crucial en la pedagogía matemática. ✨</p>
+        </header>
+
+        <div class="tab-container">
+            <button class="tab-button active" onclick="openTab(event, 'fundamentos')">1. Fundamentos 💡</button>
+            <button class="tab-button" onclick="openTab(event, 'diversidad')">2. Diversidad 🌐</button>
+            <button class="tab-button" onclick="openTab(event, 'metodos')">3. Métodos 🔢</button>
+            <button class="tab-button" onclick="openTab(event, 'pensamientos')">4. Alg. y Comp. 🔗</button>
+            <button class="tab-button" onclick="openTab(event, 'habilidades')">5. Habilidades 💪</button>
+            <button class="tab-button" onclick="openTab(event, 'pedagogia')">6. Pedagogía 🍎</button>
+            <button class="tab-button" onclick="openTab(event, 'estrategias')">7. Estrategias 👩‍🏫</button>
+            <button class="tab-button" onclick="openTab(event, 'beneficios-desafios')">8. Beneficios y Desafíos 👍👎</button>
+            <button class="tab-button" onclick="openTab(event, 'conclusion')">Conclusión 🏆</button>
+        </div>
+
+        <div id="fundamentos" class="tab-content-section active">
+            <h2>1. Fundamentos del Pensamiento Algorítmico 💡</h2>
+            <h3>¿Qué es un Algoritmo? 🔍</h3>
+            <div class="colored-block blue">
+                <p>Un algoritmo es una secuencia organizada y precisa de pasos diseñada para resolver una tarea específica. Es un conjunto finito de instrucciones bien definidas que, cuando se ejecutan en un orden específico, producen una solución a un problema.</p>
+            </div>
+            <div class="colored-block orange">
+                <p>Puede conceptualizarse como una "receta, proceso, método, técnica o rutina". 👩‍🍳 La existencia de un algoritmo implica la potencial automatización de una tarea.</p>
+            </div>
+            <h3>Atributos Esenciales de los Algoritmos ✅</h3>
+            <ul>
+                <li><strong>Operaciones Elementales:</strong> Cada operación constitutiva debe ser comprensible y controlable para el ejecutor.</li>
+                <li><strong>Unívocidad (Unambiguity):</strong> El algoritmo debe especificar de forma inequívoca la secuencia de operaciones, garantizando el mismo resultado con los mismos datos iniciales.</li>
+                <li><strong>Efectividad (Effectiveness):</strong> La ejecución de sus pasos resultará en la solución correcta de la tarea en un número finito de operaciones.</li>
+                <li><strong>Generalidad (Generality):</strong> Debe ser aplicable a una clase entera de problemas, operando sobre parámetros.</li>
+                <li><strong>Finitud (Finiteness):</strong> Debe culminar su ejecución en un número predefinido y finito de pasos.</li>
+                <li><strong>Entrada/Salida (Input/Output):</strong> Procesa datos de entrada y genera datos de salida pertinentes para la resolución del problema. 📥📤</li>
+            </ul>
+        </div>
+
+        <div id="diversidad" class="tab-content-section">
+            <h2>2. Diversidad de Algoritmos: Un Marco Categórico Amplio 🌐</h2>
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Clasificación por Ámbito de Aplicación 🌍</h3>
+                    <ul>
+                        <li><strong>Algoritmos Cotidianos:</strong> Procedimientos paso a paso en actividades diarias (ej. cepillarse los dientes, recetas). 🍳</li>
+                        <li><strong>Algoritmos Matemáticos y Científicos:</strong> Métodos para resolver problemas numéricos o teóricos (ej. Algoritmo de Euclides, Método de Newton-Raphson). 📐</li>
+                        <li><strong>Algoritmos Computacionales:</strong> Diseñados específicamente para ser ejecutados por sistemas informáticos (ej. QuickSort, búsqueda binaria). 💻</li>
+                        <li><strong>Algoritmos de Toma de Decisiones:</strong> Guían la selección de opciones basándose en datos o reglas (ej. sistemas de recomendación, rutas óptimas en GPS). 🚦</li>
+                        <li><strong>Algoritmos Creativos y Artísticos:</strong> Encargados de generar contenido o soluciones innovadoras y artísticas (ej. generación de música por IA). 🎨🎵</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Clasificación por Estructura Lógica 🧠</h3>
+                    <ul>
+                        <li><strong>Algoritmos Iterativos:</strong> Repiten una serie de pasos hasta que se cumple una condición (ej. búsqueda de un elemento en una lista con ciclo `while`). 🔄</li>
+                        <li><strong>Algoritmos Recursivos:</strong> Se definen a sí mismos en términos de instancias más pequeñas del mismo problema (ej. cálculo del factorial n!). ♾️</li>
+                        <li><strong>Algoritmos Heurísticos:</strong> Proporcionan soluciones aproximadas a problemas complejos cuando la solución exacta es inviable (ej. algoritmos genéticos). 🧩</li>
+                        <li><strong>Algoritmos Paralelos y Distribuidos:</strong> Ejecutan tareas de manera concurrente en múltiples procesadores o sistemas interconectados (ej. paradigma MapReduce). 🤝</li>
+                    </ul>
+                    <h3>Clasificación por Propósito 🎯</h3>
+                    <ul>
+                        <li><strong>Algoritmos de Optimización:</strong> Minimizan o maximizan una función objetivo (ej. algoritmo del simplex, gradiente descendente). 📈📉</li>
+                        <li><strong>Algoritmos de Simulación:</strong> Modelan sistemas del mundo real para predecir comportamientos (ej. modelos climáticos, simulaciones de tráfico). ☁️🚗</li>
+                        <li><strong>Algoritmos de Aprendizaje Automático:</strong> Permiten a los sistemas aprender patrones a partir de datos (ej. redes neuronales, árboles de decisión). 🤖📊</li>
+                        <li><strong>Algoritmos Éticos o de Fairness:</strong> Diseñados para asegurar decisiones automatizadas justas y equitativas. ⚖️</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="metodos" class="tab-content-section">
+            <h2>3. Métodos Matemáticos: ¿Son Equivalentes a los Algoritmos? 🤔</h2>
+            <h3>Métodos Matemáticos con Naturaleza Algorítmica ✅</h3>
+            <div class="colored-block green">
+                <p>Ciertos métodos matemáticos poseen una naturaleza algorítmica, al adherirse a las propiedades de una secuencia de pasos repetibles y deterministas. Esto incluye el Algoritmo de Euclides para el MCD y la Regla de Cramer para sistemas de ecuaciones.</p>
+            </div>
+            <ul>
+                <li><strong>Ejemplos:</strong> Algoritmo de Euclides para el MCD, Regla de Cramer para sistemas de ecuaciones, Método de Gauss-Jordan para matrices.</li>
+                <li>Justificados por su determinismo, terminación y generalidad.</li>
+            </ul>
+            <h3>Métodos Matemáticos que Difieren de los Algoritmos ❌</h3>
+            <div class="colored-block red">
+                <p>No todos los métodos matemáticos pueden ser categorizados como algoritmos. Algunos demandan un nivel de razonamiento abstracto, creatividad o procesos de demostración lógica que no se ajustan a la rigidez de una secuencia mecánica de instrucciones.</p>
+            </div>
+            <ul>
+                <li><strong>Ejemplos:</strong> Demostraciones por inducción matemática, Demostraciones no constructivas, Ciertos resultados de la Teoría de Conjuntos abstracta (ej. teorema de Cantor). 🤯</li>
+            </ul>
+        </div>
+
+        <div id="pensamientos" class="tab-content-section">
+            <h2>4. Pensamiento Algorítmico y Pensamiento Computacional: Una Relación Entrelazada 🔗</h2>
+            <div class="two-columns">
+                <div class="column">
+                    <h3>El Pensamiento Algorítmico 💡</h3>
+                    <div class="colored-block blue">
+                        <p>Alude a la capacidad de concebir, interpretar y aplicar algoritmos, trabajando con secuencias de pasos finitas y bien definidas.</p>
+                    </div>
+                    <ul>
+                        <li>Implica trabajar con secuencias de pasos finitas, bien definidas y repetibles.</li>
+                        <li><strong>Componentes clave:</strong> descomposición, ordenamiento, abstracción, generalización.</li>
+                        <li>Crucial en programación, matemáticas y ciencias de la computación.</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>El Pensamiento Computacional 💻</h3>
+                    <div class="colored-block orange">
+                        <p>Representa un enfoque amplio para la resolución de problemas, sustentado en principios inherentes a las ciencias de la computación, como la descomposición de problemas y el reconocimiento de patrones.</p>
+                    </div>
+                    <ul>
+                        <li>Habilidad para descomponer problemas, reconocer patrones, abstraer detalles irrelevantes y formular soluciones mediante algoritmos o sistemas computacionales.</li>
+                        <li>Introducido por Jeannette Wing en 2006.</li>
+                    </ul>
+                </div>
+            </div>
+            <h3>Sinergia entre el Pensamiento Algorítmico y Computacional 🤝</h3>
+            <div class="colored-block green">
+                <p>El pensamiento algorítmico es un pilar central del pensamiento computacional, y existe una interdependencia intrínseca entre ambos para el diseño e implementación de soluciones eficientes. Son herramientas interconectadas de innegable relevancia en el siglo XXI. 🚀</p>
+            </div>
+            <ul>
+                <li>El pensamiento computacional engloba un espectro más amplio de habilidades (incluye algorítmico, descomposición, abstracción y diseño de sistemas).</li>
+                <li>Un algoritmo eficiente requiere del pensamiento computacional para su diseño, y este se apoya en algoritmos para su implementación.</li>
+            </ul>
+        </div>
+
+        <div id="habilidades" class="tab-content-section">
+            <h2>5. Habilidades Potenciadas por el Pensamiento Algorítmico 💪</h2>
+            <div class="colored-block blue">
+                <p>El cultivo del pensamiento algorítmico no solo requiere, sino que también fomenta, un conjunto robusto de habilidades cognitivas y metacognitivas esenciales para el razonamiento y la resolución de problemas.</p>
+            </div>
+            <ul>
+                <li><strong>Especificación y Análisis de Problemas:</strong> Definir con claridad un problema y desglosarlo en componentes más pequeños. 🧩</li>
+                <li><strong>Identificación de Procesos Básicos:</strong> Discernir las operaciones fundamentales requeridas para resolver una tarea. 🛠️</li>
+                <li><strong>Construcción de Algoritmos:</strong> Diseño de secuencias lógicas de pasos, estimulando el pensamiento preciso, lógico y formal. 🏗️</li>
+                <li><strong>Consideración de Casos y Proposición de Mejoras:</strong> Analizar escenarios específicos y generales, evaluando y optimizando la eficiencia. 📊</li>
+                <li><strong>Desarrollo del Pensamiento Reflexivo y Autocontrol:</strong> Verificar la funcionalidad del esquema algorítmico con diversos parámetros. 🤔💡</li>
+                <li><strong>Análisis de Algoritmos Existentes:</strong> Apreciar la precisión, simplicidad y distinguir entre elementos fijos y variables. 🧐</li>
+                <li><strong>Conexión con Conocimientos Previos:</strong> Relacionar el problema actual con problemas resueltos anteriormente o teoremas conocidos. 🧠🔗</li>
+            </ul>
+        </div>
+
+        <div id="pedagogia" class="tab-content-section">
+            <h2>6. La Aplicación de Algoritmos en la Pedagogía Matemática 🍎</h2>
+            <div class="colored-block orange">
+                <p>La incorporación consciente de algoritmos en la enseñanza de las matemáticas conlleva múltiples beneficios educativos, mejorando la eficiencia y permitiendo la automatización de procesos básicos. Es fundamental que la introducción de procedimientos algorítmicos esté precedida por una comprensión conceptual profunda del problema, avanzando ambos aspectos en paralelo.</p>
+            </div>
+
+            <h3 id="teaching-flow-section">Flujo de Enseñanza de un Método Algorítmico en Matemáticas ➡️</h3>
+            <ul id="teaching-flow">
+                <li><strong>1. Presentación de los conceptos necesarios:</strong> Asegurar que los estudiantes los han comprendido. 📚</li>
+                <li><strong>2. Explicación del algoritmo involucrado:</strong> Detallar su contexto de aplicación, entradas y salidas. 📖</li>
+                <li><strong>3. Cuáles son los datos de entrada:</strong> Identificar la información inicial. 📥</li>
+                <li><strong>4. Cuáles son las incógnitas:</strong> Definir lo que se busca encontrar. ❓</li>
+                <li><strong>5. Cuál el algoritmo (paso a paso) a seguir:</strong> Describir el procedimiento detallado. 👣</li>
+                <li><strong>6. Cómo se debe verificar el resultado:</strong> Enseñar métodos de comprobación. ✅</li>
+                <li><strong>7. Qué debe haber aprendido el estudiante en el proceso:</strong> Reflexionar sobre el aprendizaje. 🧠💡</li>
+            </ul>
+
+            <h3>Ejemplos de Aplicación en Materiales Educativos de Matemáticas 📚</h3>
+            <ul>
+                <li><strong>Algoritmos como Patrones de Acción:</strong> Enseñanza de operaciones escritas (suma, resta, etc.) o el Algoritmo de Euclides. ✍️</li>
+                <li><strong>Árboles-grafos:</strong> Representación de secuencias de acciones en expresiones aritméticas. 🌳</li>
+                <li><strong>Máquinas Numéricas:</strong> Representaciones gráficas de algoritmos numéricos simples que fomentan la comprensión intuitiva de funciones. 🔢⚙️</li>
+                <li><strong>Búsqueda de un Procedimiento General:</strong> Actividades que requieren identificar métodos generales y formular generalizaciones algebraicas. 🗺️</li>
+                <li><strong>Algoritmos Predefinidos en Diagramas de Bloques:</strong> Introducción a la algoritmización mediante el análisis de diagramas de flujo. ⏹️➡️</li>
+                <li><strong>Creación de Patrones Análogos:</strong> Diseño de algoritmos para problemas similares basándose en modelos conocidos. 💡🔄</li>
+                <li><strong>Construcción de Algoritmos por Parte de los Estudiantes:</strong> Exige planificación, formulación precisa y reorganización del conocimiento. 👷‍♀️</li>
+                <li><strong>Construcciones Geométricas como Algoritmos:</strong> Interpretación de construcciones geométricas como planes de operación algorítmicamente representables. 📏📐</li>
+            </ul>
+        </div>
+
+        <div id="estrategias" class="tab-content-section">
+            <h2>7. Estrategias Pedagógicas para la Enseñanza de las Matemáticas con Enfoque Algorítmico 👩‍🏫</h2>
+            <div class="colored-block blue">
+                <p>Para una integración efectiva del pensamiento algorítmico, es crucial que los docentes fomenten un equilibrio entre la comprensión conceptual y la práctica algorítmica.</p>
+            </div>
+            <ul>
+                <li><strong>Equilibrio Conceptual y Algorítmico:</strong> Enfatizar ambos aspectos, evitando presentar fórmulas sin comprensión. ⚖️</li>
+                <li><strong>Fomento de la Práctica Constante:</strong> Resolución recurrente de problemas que exijan diseño o análisis de algoritmos. ✍️🔄</li>
+                <li><strong>Uso de Diversas Representaciones:</strong> Exponer a los estudiantes a descripciones verbales, diagramas de flujo, pseudocódigo, etc. 🗺️🎨</li>
+                <li><strong>Incentivo a la Creación y Análisis de Algoritmos Propios:</strong> Promueve el pensamiento lógico, formal y reflexivo. 🚀🧠</li>
+                <li><strong>Promoción de la Generalidad y Optimización:</strong> Guiar a identificar patrones y desarrollar procedimientos generales y eficientes. 📈✨</li>
+                <li><strong>Conexión entre Problemas Nuevos y Conocimientos Previos:</strong> Enseñar a buscar relaciones y la utilidad de problemas auxiliares. 🔗💡</li>
+                <li><strong>Explicitación del Propósito de los Pasos:</strong> Explicar el "porqué" de cada paso para fomentar el razonamiento profundo. ❓❓</li>
+                <li><strong>Fomento de la Reflexión Post-Solución:</strong> Animar a "mirar hacia atrás", revisando el proceso y su aplicabilidad. 🧐🔄</li>
+                <li><strong>Presentación Concreta de Conceptos Abstractos:</strong> Utilizar ejemplos tangibles para facilitar la comprensión. 🧊➡️🖼️</li>
+                <li><strong>Desafío con Problemas No Rutinarios:</strong> Estimular la curiosidad con desafíos proporcionales al nivel de conocimiento. 🚀💡</li>
+            </ul>
+        </div>
+
+        <div id="beneficios-desafios" class="tab-content-section challenge">
+            <h2>8. Beneficios y Desafíos de la Algoritmización en la Enseñanza Matemática 👍👎</h2>
+            <div class="two-columns">
+                <div class="column">
+                    <h3>Beneficios ✅</h3>
+                    <div class="colored-block green">
+                        <p>La algoritmización en la enseñanza de las matemáticas ofrece ventajas significativas, potenciando habilidades cognitivas y mejorando la comprensión profunda de conceptos.</p>
+                    </div>
+                    <ul>
+                        <li><strong>Comprensión Profunda:</strong> Facilita la exploración y el entendimiento de conceptos matemáticos. 📚</li>
+                        <li><strong>Desarrollo de Habilidades:</strong> Potencia el pensamiento lógico, matemático y el hábito de verificar resultados. 🧠💪</li>
+                        <li><strong>Fundamento Conceptual:</strong> Proporciona las herramientas técnicas para arraigar el conocimiento conceptual. 🏗️</li>
+                        <li><strong>Aprendizaje Holístico:</strong> Permite una comprensión integral al interconectar enfoques conceptuales y algorítmicos. 🌐</li>
+                        <li><strong>Eficiencia y Automatismo:</strong> La certeza algorítmica de un resultado correcto mejora la eficiencia y posibilita la automatización. ⚡</li>
+                        <li><strong>Análisis y Precisión:</strong> El análisis de algoritmos fomenta la precisión y el enfoque en el método. 🔬</li>
+                        <li><strong>Creatividad en Representación:</strong> Impulsa la creación de formas no verbales para representar relaciones. 🎨</li>
+                        <li><strong>Desarrollo Metacognitivo:</strong> La construcción de algoritmos propios exige planificación y autocontrol. 🧘‍♂️</li>
+                        <li><strong>Formalización del Razonamiento:</strong> Acostumbra al estudiante a la formalización de cuestiones matemáticas. ✍️</li>
+                        <li><strong>Competencias Prácticas:</strong> Apoya el desarrollo de habilidades prácticas, incluyendo el uso de técnicas informáticas. 💻</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h3>Desafíos ⚠️</h3>
+                    <div class="colored-block red">
+                        <p>A pesar de sus beneficios, la algoritmización presenta desafíos como la desvinculación conceptual si no se maneja correctamente, y la potencial sobrecarga cognitiva o dependencia excesiva de herramientas.</p>
+                    </div>
+                    <ul>
+                        <li><strong>Desvinculación Conceptual:</strong> La enseñanza de algoritmos de forma aislada puede llevar a percibir las matemáticas como métodos computacionales sin conexión. 🔗💔</li>
+                        <li><strong>Sobrecarga Cognitiva:</strong> Una introducción excesiva de algoritmos preestablecidos puede dificultar su memorización y generar confusión. 🤯📚</li>
+                        <li><strong>Precedencia Conceptual:</strong> La enseñanza algorítmica sin una base conceptual previa puede resultar contraproducente. 🚫🧠</li>
+                        <li><strong>Dependencia Excesiva de Herramientas:</strong> Una dependencia marcada de herramientas visuales informáticas puede desviar el enfoque del razonamiento lógico intrínseco. 📱➡️⛔</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="conclusion" class="tab-content-section">
+            <h2>Conclusión 🏆</h2>
+            <div class="colored-block blue">
+                <p>El pensamiento algorítmico es una habilidad esencial que trasciende la informática, siendo fundamental para la resolución de problemas en matemáticas y diversas disciplinas. Su integración en la enseñanza matemática, siempre que se equilibren los aspectos algorítmicos y conceptuales, ofrece notables ventajas educativas.</p>
+            </div>
+            <div class="colored-block orange">
+                <p>Al dotar a los estudiantes de la capacidad de especificar, analizar y construir algoritmos, se les proporcionan herramientas cognitivas de valor incalculable aplicables en múltiples contextos. El objetivo pedagógico no reside meramente en formar programadores, sino en cultivar un pensamiento algorítmico que constituye un prerrequisito para un desarrollo matemático más profundo y creativo.</p>
+            </div>
+            <div class="colored-block green">
+                <p>Adoptar un enfoque que valore tanto el "qué" (los conceptos) como el "cómo" (los algoritmos) preparará a los estudiantes de manera más efectiva para afrontar los desafíos lógicos y de resolución de problemas en un mundo cada vez más complejo. 🌟</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 fmartinezb@gmail.com</p>
+        </footer>
+    </div>
+
+    <script>
+        // Función para cambiar de pestaña
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbuttons;
+
+            // Oculta todos los contenidos de las pestañas
+            tabcontent = document.getElementsByClassName("tab-content-section");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remueve la clase "active" de todos los botones de pestaña
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].className = tabbuttons[i].className.replace(" active", "");
+            }
+
+            // Muestra la pestaña actual y agrega la clase "active" al botón
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Activar la primera pestaña por defecto al cargar la página
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Asegura que la primera pestaña esté activa al cargar
+            const firstTabButton = document.querySelector('.tab-button');
+            if (firstTabButton) {
+                firstTabButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
