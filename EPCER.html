@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método Polya-EPCER para la Programación con Asistente IA</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0D47A1, #1E88E5);
+        }
+        .highlight {
+            color: #FB8C00; /* Naranja */
+        }
+        .highlight-bg {
+            background-color: #FB8C00;
+        }
+        /* Styles for Modal */
+        .modal-backdrop {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+        /* Spinner Animation */
+        .spinner {
+            border-top-color: #1E88E5;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Print-specific Styles */
+        @media print {
+            body {
+                font-size: 11pt;
+            }
+            .print-hidden {
+                display: none !important;
+            }
+            .gradient-bg {
+                background: none !important;
+                box-shadow: none !important;
+            }
+            header {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+            h1, h2, h3, h4, h5, h6, p, li, b, span {
+                color: #000 !important;
+            }
+            .bg-blue-50, .bg-orange-50 {
+                background-color: #fff !important;
+                border: 1px solid #ddd;
+            }
+            img {
+                box-shadow: none !important;
+                border: 1px solid #eee;
+            }
+            section {
+                margin-bottom: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-slate-800">
+
+    <!-- Hero Section -->
+    <header class="gradient-bg text-white p-8 md:p-16 text-center shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Transformando la Enseñanza de la Programación</h1>
+            <h2 class="text-2xl md:text-3xl font-light">Con el Método <span class="font-semibold highlight">Polya-EPCER</span> y Asistente IA</h2>
+            <p class="mt-6 text-lg text-blue-100">Una guía estructurada con herramientas inteligentes para que los estudiantes pasen del problema a la solución con confianza.</p>
+        </div>
+    </header>
+
+    <!-- Print Button Section -->
+    <div class="max-w-5xl mx-auto text-right p-4 print-hidden">
+        <button id="printBtn" class="bg-gray-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 shadow-md inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Imprimir / Guardar como PDF
+        </button>
+    </div>
+
+    <main class="max-w-5xl mx-auto p-6 md:p-12">
+
+        <!-- Introduction Section -->
+        <section id="intro" class="mb-20 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-800 mb-4">¿Por qué un Método?</h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                El método <b class="highlight">EPCER</b> ofrece un andamiaje mental para guiar el pensamiento crítico. Ahora, con la integración de la IA, podemos potenciar cada paso del proceso, ofreciendo a los docentes herramientas para generar contenido y ejemplos al instante.
+            </p>
+        </section>
+
+        <!-- Steps Section -->
+        <div class="space-y-24">
+
+            <!-- Step 1: Entender -->
+            <section class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 w-full">
+                    <img src="https://placehold.co/600x400/1E88E5/FFFFFF?text=Entender(Análisis)" alt="[Imagen de una lupa analizando datos]" class="rounded-lg shadow-xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                </div>
+                <div class="md:w-1/2 w-full">
+                    <h3 class="text-3xl font-bold text-blue-800 mb-3">1. Entender el Requerimiento</h3>
+                    <p class="text-gray-600 mb-4">La fase más crucial. Un error de comprensión aquí se magnifica exponencialmente. El objetivo es lograr una certeza absoluta sobre el <b class="font-semibold">qué</b> antes de pensar en el <b class="font-semibold">cómo</b>.</p>
+                    <ul class="list-disc list-inside space-y-2 text-left bg-blue-50 p-4 rounded-lg mb-6">
+                        <li><b class="text-blue-700">Actividad sugerida:</b> "Re-escritura del problema".</li>
+                        <li><b class="text-blue-700">Actividad sugerida:</b> Listar <span class="font-semibold">entradas</span>, <span class="font-semibold">salidas</span> y <span class="font-semibold">condiciones</span>.</li>
+                    </ul>
+                    <button id="generateProblemBtn" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md print-hidden">
+                        ✨ Generar un Problema de Ejemplo con IA
+                    </button>
+                </div>
+            </section>
+
+            <!-- Step 2: Planificar -->
+            <section class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-1/2 w-full">
+                    <img src="https://placehold.co/600x400/FB8C00/FFFFFF?text=Planificar(Diseño)" alt="[Imagen de un plano o un diagrama de flujo]" class="rounded-lg shadow-xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                </div>
+                <div class="md:w-1/2 w-full">
+                    <h3 class="text-3xl font-bold text-orange-600 mb-3">2. Planificar la Solución</h3>
+                    <p class="text-gray-600 mb-4">Es el acto de diseñar antes de construir. Se traza un mapa lógico, independiente del lenguaje, para pensar como arquitecto de software.</p>
+                    <ul class="list-disc list-inside space-y-2 text-left bg-orange-50 p-4 rounded-lg">
+                        <li><b class="text-orange-700">Actividad sugerida:</b> Redacción de <span class="font-semibold">pseudocódigo</span>.</li>
+                        <li><b class="text-orange-700">Actividad sugerida:</b> Creación de <span class="font-semibold">diagramas de flujo</span>.</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Step 3: Codificar -->
+            <section class="flex flex-col md:flex-row items-center gap-12">
+                 <div class="md:w-1/2 w-full">
+                    <img src="https://placehold.co/600x400/1E88E5/FFFFFF?text=Codificar la solución" alt="[Imagen de código en una pantalla de computadora]" class="rounded-lg shadow-xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                </div>
+                <div class="md:w-1/2 w-full">
+                    <h3 class="text-3xl font-bold text-blue-800 mb-3">3. Codificar lo Planificado</h3>
+                    <p class="text-gray-600 mb-4">Con un plan sólido, esta fase se convierte en una traducción disciplinada. El foco está en la sintaxis correcta y las buenas prácticas.</p>
+                     <ul class="list-disc list-inside space-y-2 text-left bg-blue-50 p-4 rounded-lg">
+                        <li><b class="text-blue-700">Actividad sugerida:</b> "Programación en pareja".</li>
+                        <li><b class="text-blue-700">Actividad sugerida:</b> Fomentar <span class="font-semibold">comentarios</span> que expliquen el "porqué".</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Step 4: Correr y Probar -->
+             <section class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="md:w-1/2 w-full">
+                    <img src="https://placehold.co/600x400/FB8C00/FFFFFF?text=Ejecutar(Correr)" alt="[Imagen de una lista de chequeo o un dashboard de pruebas]" class="rounded-lg shadow-xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                </div>
+                <div class="md:w-1/2 w-full">
+                    <h3 class="text-3xl font-bold text-orange-600 mb-3">4. Correr y Probar</h3>
+                    <p class="text-gray-600 mb-4">Un programa que corre no es necesariamente correcto. Esta fase busca deliberadamente los fallos para garantizar la robustez.</p>
+                     <div class="bg-orange-50 p-4 rounded-lg print-hidden">
+                        <label for="problem-input" class="font-semibold text-orange-700">Pegue aquí un enunciado de problema:</label>
+                        <textarea id="problem-input" rows="4" class="w-full mt-2 p-2 border border-orange-200 rounded-md focus:ring-2 focus:ring-orange-400 focus:outline-none"></textarea>
+                        <button id="generateTestsBtn" class="w-full mt-2 bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-300 shadow-md">
+                           ✨ Sugerir Casos de Prueba con IA
+                        </button>
+                    </div>
+                    <p class="mt-4 text-gray-600 hidden print:block">Para verificar un programa, es crucial diseñar una tabla de casos de prueba que incluya casos normales, casos límite y entradas inválidas.</p>
+                </div>
+            </section>
+
+            <!-- Step 5: Reflexionar y Refactorizar -->
+            <section class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 w-full">
+                    <img src="https://placehold.co/600x400/1E88E5/FFFFFF?text=Mejora+Continua" alt="[Imagen de un engranaje siendo pulido o mejorado]" class="rounded-lg shadow-xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/600x400';">
+                </div>
+                <div class="md:w-1/2 w-full">
+                    <h3 class="text-3xl font-bold text-blue-800 mb-3">5. Reflexionar y Refactorizar</h3>
+                    <p class="text-gray-600 mb-4">El ciclo del artesano. Una vez que funciona, ¿cómo puede ser mejor? Se busca la elegancia: código más limpio, eficiente y legible.</p>
+                     <ul class="list-disc list-inside space-y-2 text-left bg-blue-50 p-4 rounded-lg">
+                        <li><b class="text-blue-700">Actividad sugerida:</b> "Revisión de código" (Code Review) entre pares.</li>
+                        <li><b class="text-blue-700">Actividad sugerida:</b> Reto de <span class="font-semibold">refactorización</span> de código.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white mt-20 p-8 text-center print-hidden">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold mb-2">Listos para Implementar</h3>
+            <p class="text-blue-100">Integrar el método Polya-EPCER es invertir en la capacidad de nuestros estudiantes para pensar como verdaderos ingenieros de software.</p>
+            <div class="mt-8 border-t border-blue-400/50 pt-6">
+                <p class="text-sm text-blue-200">&copy; 2025 fmartinezb@gmail.com. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Modal -->
+    <div id="aiModal" class="fixed inset-0 z-50 flex items-center justify-center hidden print-hidden">
+        <!-- Backdrop -->
+        <div id="modalBackdrop" class="absolute inset-0 bg-black bg-opacity-60 modal-backdrop"></div>
+        
+        <!-- Modal Content -->
+        <div id="modalContent" class="relative bg-white rounded-lg shadow-2xl w-11/12 md:w-3/4 lg:w-1/2 max-w-4xl max-h-[85vh] flex flex-col modal-content transform scale-95">
+            <header class="flex items-center justify-between p-4 border-b">
+                <h3 id="modalTitle" class="text-2xl font-bold text-blue-800">Asistente de IA</h3>
+                <button id="closeModalBtn" class="text-gray-500 hover:text-red-600 text-3xl">&times;</button>
+            </header>
+            <main id="modalBody" class="p-6 overflow-y-auto">
+                <!-- Spinner -->
+                <div id="loadingSpinner" class="flex flex-col items-center justify-center h-64">
+                    <div class="spinner w-16 h-16 border-4 border-gray-200 rounded-full"></div>
+                    <p class="mt-4 text-lg text-gray-600">Generando respuesta...</p>
+                </div>
+                <!-- Result -->
+                <div id="modalResult" class="hidden prose max-w-none prose-blue"></div>
+            </main>
+        </div>
+    </div>
+
+    <script type="module">
+        // --- Print Button ---
+        document.getElementById('printBtn').addEventListener('click', () => {
+            window.print();
+        });
+
+        // --- Modal Control ---
+        const modal = document.getElementById('aiModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalBackdrop = document.getElementById('modalBackdrop');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const modalResult = document.getElementById('modalResult');
+
+        const openModal = (title) => {
+            modalTitle.textContent = title;
+            modalResult.innerHTML = '';
+            modalResult.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalBackdrop.classList.remove('opacity-0');
+                document.getElementById('modalContent').classList.remove('scale-95');
+            }, 10);
+        };
+
+        const closeModal = () => {
+            modalBackdrop.classList.add('opacity-0');
+            document.getElementById('modalContent').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        };
+        
+        closeModalBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', closeModal);
+        
+        // --- Gemini API Call Function ---
+        async function callGemini(prompt) {
+            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+            const payload = { contents: chatHistory };
+            const apiKey = ""; // Canvas provides the key
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Error en la API: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    console.error("Respuesta inesperada de la API:", result);
+                    if (result.candidates && result.candidates[0] && result.candidates[0].finishReason) {
+                        return `La solicitud fue bloqueada. Razón: ${result.candidates[0].finishReason}. Intente con un texto diferente.`;
+                    }
+                    return "No se pudo obtener una respuesta válida de la IA.";
+                }
+            } catch (error) {
+                console.error("Error al llamar a la API de Gemini:", error);
+                return `Error de conexión: ${error.message}. Por favor, inténtelo de nuevo.`;
+            }
+        }
+        
+        function displayResult(text) {
+            let html = text
+                .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mt-4 mb-2">$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-6 mb-3">$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-8 mb-4">$1</h1>')
+                .replace(/^\* (.*$)/gim, '<li class="ml-4">$1</li>')
+                .replace(/`(.*?)`/g, '<code class="bg-gray-200 text-sm font-mono rounded px-1 py-0.5">$1</code>')
+                .replace(/\n/g, '<br>');
+
+            modalResult.innerHTML = html;
+            loadingSpinner.classList.add('hidden');
+            modalResult.classList.remove('hidden');
+        }
+
+        // --- Feature 1: Generate Problem ---
+        const generateProblemBtn = document.getElementById('generateProblemBtn');
+        generateProblemBtn.addEventListener('click', async () => {
+            const topic = prompt("Por favor, introduce un tema de programación para el problema (ej: bucles, arrays, funciones, condicionales):", "bucles");
+            if (!topic) return;
+            
+            openModal('Generador de Problemas de IA');
+            const promptText = `Eres un profesor de programación para principiantes. Crea un enunciado para un problema de programación de nivel introductorio sobre el tema "${topic}". El problema debe ser claro, conciso, y tener un objetivo bien definido. No incluyas la solución, solo el enunciado del problema, sus entradas y salidas esperadas.`;
+            const resultText = await callGemini(promptText);
+            displayResult(resultText);
+        });
+        
+        // --- Feature 2: Generate Test Cases ---
+        const generateTestsBtn = document.getElementById('generateTestsBtn');
+        const problemInput = document.getElementById('problem-input');
+        generateTestsBtn.addEventListener('click', async () => {
+            const problemDescription = problemInput.value.trim();
+            if (!problemDescription) {
+                alert("Por favor, pega el enunciado de un problema en el área de texto.");
+                return;
+            }
+            
+            openModal('Sugeridor de Casos de Prueba con IA');
+            const promptText = `Analiza el siguiente problema de programación y sugiere una lista exhaustiva de casos de prueba. Organiza los casos en tres categorías: "Casos Normales" (entradas típicas), "Casos Límite" (edge cases, como valores cero, vacíos, o en los extremos de un rango), y "Casos Inválidos" (entradas que el programa debería rechazar elegantemente). Para cada caso, especifica la entrada y la salida esperada.\n\nProblema:\n"""\n${problemDescription}\n"""`;
+            const resultText = await callGemini(promptText);
+            displayResult(resultText);
+        });
+
+    </script>
+</body>
+</html>
