@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Método EAMGA - Plantilla Docente</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Un gris muy claro para el fondo general */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-lg */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        .section-box {
+            background-color: #e0f2fe; /* Azul claro para las cajas de sección */
+            border-radius: 0.5rem; /* rounded-md */
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.25rem; /* Espacio entre cajas */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra más sutil para las cajas */
+        }
+        /* Estilos para impresión */
+        @media print {
+            body {
+                background-color: white;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 1rem;
+                max-width: none;
+                width: 100%;
+            }
+            .print-button-container {
+                display: none; /* Oculta el botón de imprimir en la impresión */
+            }
+            .section-box {
+                background-color: #f8f8f8; /* Un gris más claro para impresión si es necesario */
+                border: 1px solid #ddd;
+            }
+            footer {
+                color: #555 !important; /* Asegura el color en la impresión */
+            }
+        }
+    </style>
+    <!-- MathJax Configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            "HTML-CSS": {
+                linebreaks: { automatic: true }
+            },
+            SVG: {
+                linebreaks: { automatic: true }
+            }
+        });
+    </script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body class="p-4">
+    <div class="container">
+        <!-- Título principal -->
+        <h1 class="text-center text-5xl font-extrabold mb-2" style="color: #f7b633;">
+            Método EAMGA
+        </h1>
+        <!-- Subtítulo -->
+        <h2 class="text-center text-lg font-medium mb-8" style="color: #73c2fb;">
+            Enseñanza Aprendizaje de Matématicas Guiadas por Algoritmos
+        </h2>
+
+        <!-- Contenido principal -->
+        <div class="mb-6">
+            <h3 class="text-2xl font-bold mb-4 text-gray-800">Para el Docente:</h3>
+
+            <!-- 1. Nombre del Método -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">1. Nombre del Método:</p>
+                <p>Asigna un nombre claro al algoritmo (e.g., "Resolución de Sistemas de Ecuaciones por Sustitución").</p>
+            </div>
+
+            <!-- 2. Descripción General -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">2. Descripción General:</p>
+                <p>Explica brevemente el propósito del método y su contexto de aplicación.</p>
+            </div>
+
+            <!-- 3. Exposición -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">3. Exposición:</p>
+                <p class="mb-2">Define claramente el método de resolución.</p>
+                <ul class="list-disc pl-5 space-y-1">
+                    <li><strong class="font-bold">Entradas:</strong> Define los datos o elementos necesarios para aplicar el método.</li>
+                    <li><strong class="font-bold">Pasos del Algoritmo:</strong> Divide el proceso en pasos numerados y detallados.</li>
+                    <li><strong class="font-bold">Salida:</strong> Indica qué resultado se obtiene al final del proceso.</li>
+                </ul>
+            </div>
+
+            <!-- 6. Ejemplo Resuelto -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">6. Ejemplo Resuelto:</p>
+                <p>Proporciona un ejemplo completo, aplicando el método paso a paso.</p>
+            </div>
+
+            <!-- 7. Casos Especiales o Errores Comunes -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">7. Casos Especiales o Errores Comunes:</p>
+                <p>Describe posibles excepciones o errores frecuentes.</p>
+            </div>
+
+            <!-- 8. Práctica Guiada -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">8. Práctica Guiada:</p>
+                <p>Ofrece ejercicios guiados para reforzar el aprendizaje.</p>
+            </div>
+
+            <!-- 9. Práctica Independiente -->
+            <div class="section-box">
+                <p class="font-semibold text-lg mb-1">9. Práctica Independiente:</p>
+                <p>Sugiere ejercicios adicionales para consolidar el conocimiento.</p>
+            </div>
+        </div>
+
+        <!-- Botón de Imprimir -->
+        <div class="print-button-container text-center mt-8 mb-8">
+            <button onclick="window.print()" class="px-6 py-3 rounded-full font-bold text-white shadow-lg transition-transform transform hover:scale-105 active:scale-95"
+                    style="background-color: #f7b633;">
+                Imprimir
+            </button>
+        </div>
+
+        <!-- Copyright -->
+        <footer class="text-center text-sm mt-8 text-gray-600">
+            © 2025 Método EAMGA - Lic. Felipe Martínez | Diseñado para aprendizaje activo
+        </footer>
+    </div>
+</body>
+</html>

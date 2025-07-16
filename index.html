@@ -241,6 +241,38 @@
             color: #b71c1c;
         }
 
+        /* Estilos para los nuevos botones */
+        .template-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+        }
+
+        .template-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none; /* Remove underline for links */
+            display: inline-block; /* Allow padding and margin */
+        }
+
+        .template-button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .template-button:active {
+            transform: translateY(0);
+        }
 
         /* Pie de página */
         footer {
@@ -302,6 +334,10 @@
                 font-size: 1em;
                 padding: 12px 15px;
             }
+            .template-button {
+                padding: 12px 20px;
+                font-size: 1em;
+            }
         }
 
         @media (max-width: 480px) {
@@ -348,6 +384,13 @@
             footer {
                 padding: 15px;
                 font-size: 0.8em;
+            }
+            .template-buttons {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+                gap: 10px;
+            }
+            .template-button {
+                width: 100%; /* Full width for stacked buttons */
             }
         }
     </style>
@@ -521,6 +564,12 @@
                 <li><strong>Construcción de Algoritmos por Parte de los Estudiantes:</strong> Exige planificación, formulación precisa y reorganización del conocimiento. 👷‍♀️</li>
                 <li><strong>Construcciones Geométricas como Algoritmos:</strong> Interpretación de construcciones geométricas como planes de operación algorítmicamente representables. 📏📐</li>
             </ul>
+
+            <!-- Nuevos botones para las plantillas -->
+            <div class="template-buttons">
+                <a href="plantilla-docente-ge-html.html" target="_blank" class="template-button">Plantilla del Docente</a>
+                <a href="plantilla-estudiante-ge-html.html" target="_blank" class="template-button">Plantilla del Estudiante</a>
+            </div>
         </div>
 
         <div id="estrategias" class="tab-content-section">
